@@ -24,9 +24,10 @@ class EmployeeTest <MiniTest::Test
   end
 
   def test_can_create_new_ee
-    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com")
+    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678)
     assert_equal "Janice Smith", janice.name
     assert_equal "janice@dunderaccounting.com", janice.email
+    assert_equal 4152025678, janice.phone_number
   end
 
 end
