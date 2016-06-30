@@ -1,9 +1,10 @@
 class Employee
 
-  def initialize(name, email, phone_number)
+  def initialize(name, email, phone_number, salary)
     @name = name
     @email = email
     @phone_number = phone_number
+    @salary = salary
   end
 
   def name
@@ -16,6 +17,10 @@ class Employee
 
   def phone_number
     @phone_number
+  end
+
+  def salary
+    @salary
   end
 
 end
