@@ -15,6 +15,18 @@ class DepartmentTest < MiniTest::Test
     assert_equal "accounting", accounting.dept_name
   end
 
+  def test_a_department_has_a_list_of_employees
+    accounting = Department.new("Accounting")
+    assert_equal [], accounting.employees
+  end
+
+  def test_add_ee_to_dept
+    accounting = Department.new("accounting")
+    accounting.add_ee_to_dept("Martha Hansen")
+    accounting.employees
+    assert_equal "Martha Hansen", accounting.employees[0]
+  end
+
 end
 
 class EmployeeTest <MiniTest::Test
@@ -31,18 +43,4 @@ class EmployeeTest <MiniTest::Test
     assert_equal 48000, janice.salary
   end
 
-end
-
-class AssignEmployeeToDepartmentTest <MiniTest::Test
-
-  def test_assign_method_exists
-    assert AssignToDept
-  end
-
-  def test_can_create_ees_and_dept_object
-    janice = AssignToDept.new("Janice Smith", "Accounting")
-    assert_equal "Janice Smith", janice.name
-    assert_equal "Accounting", janice.dept_name
-  end
-  
 end

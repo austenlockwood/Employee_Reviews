@@ -1,15 +1,22 @@
+require_relative './employees'
 
 class Department
 
   def initialize(dept_name)
     @dept_name = dept_name
+    @employees = []
   end
 
   def dept_name
     @dept_name
   end
 
-end
+  def employees
+    @employees
+  end
 
-#this will create a Department object.
-accounting = Department.new("accounting")
+  def add_ee_to_dept(name)
+    @employees << name
+  end
+
+end
