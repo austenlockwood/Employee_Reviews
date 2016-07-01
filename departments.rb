@@ -1,11 +1,15 @@
+
 class Department
 
-  def initialize(name)
-    @name = name
+  def initialize(dept_name)
+    @dept_name = dept_name
   end
 
-  def name
-    @name
+  def dept_name
+    @dept_name
   end
 
 end
+
+#this will create a Department object.
+accounting = Department.new("accounting")

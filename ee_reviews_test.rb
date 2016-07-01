@@ -4,7 +4,7 @@ require_relative './departments'
 require_relative './employees'
 require_relative './ee_reviews'
 
-class DepartmentTest < Minitest::Test
+class DepartmentTest < MiniTest::Test
 
   def test_dept_exists
     assert Department
@@ -12,7 +12,7 @@ class DepartmentTest < Minitest::Test
 
   def test_can_create_department
     accounting = Department.new("accounting")
-    assert_equal "accounting", accounting.name
+    assert_equal "accounting", accounting.dept_name
   end
 
 end
@@ -31,4 +31,18 @@ class EmployeeTest <MiniTest::Test
     assert_equal 48000, janice.salary
   end
 
+end
+
+class AssignEmployeeToDepartmentTest <MiniTest::Test
+
+  def test_assign_method_exists
+    assert AssignToDept
+  end
+
+  def test_can_create_ees_and_dept_object
+    janice = AssignToDept.new("Janice Smith", "Accounting")
+    assert_equal "Janice Smith", janice.name
+    assert_equal "Accounting", janice.dept_name
+  end
+  
 end
