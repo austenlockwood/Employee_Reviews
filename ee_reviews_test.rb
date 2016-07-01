@@ -67,4 +67,11 @@ class EmployeeTest <MiniTest::Test
     assert_equal 55000, human_resources.total_salary
   end
 
+  def test_can_add_narrative_review_to_ee
+    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+    gorlock.add_review("Gorlock is great.")
+    gorlock.review
+    assert_equal "Gorlock is great.", gorlock.review
+  end
+
 end
