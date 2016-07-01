@@ -27,6 +27,11 @@ class DepartmentTest < MiniTest::Test
     assert_equal "Martha Hansen", accounting.employees[0]
   end
 
+  def test_get_dept_name
+    accounting = Department.new("Accounting")
+    assert_equal "Accounting", accounting.dept_name
+  end
+
 end
 
 class EmployeeTest <MiniTest::Test
