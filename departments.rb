@@ -19,4 +19,12 @@ class Department
     @employees << name
   end
 
+  def total_salary
+    total = 0
+    @employees.each do |element|
+    total += element.salary
+  end
+    total
+  end
+
 end

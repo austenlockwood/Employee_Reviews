@@ -48,4 +48,23 @@ class EmployeeTest <MiniTest::Test
     assert_equal 48000, janice.salary
   end
 
+  def test_can_get_sum_of_dept_salaries
+
+    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+    martha = Employee.new("Martha Hansen", "martha@dunderaccounting.com", 2022022202, 32000)
+    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+    alan = Employee.new("Alan Carlos", "alan@dunderhumanresources.com", 3019342567, 55000)
+
+    accounting = Department.new("Accounting")
+    human_resources = Department.new("Human Resources")
+
+    accounting.add_ee_to_dept(janice)
+    accounting.add_ee_to_dept(martha)
+    accounting.add_ee_to_dept(gorlock)
+    human_resources.add_ee_to_dept(alan)
+
+    assert_equal 95000, accounting.total_salary
+    assert_equal 55000, human_resources.total_salary
+  end
+
 end
