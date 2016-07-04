@@ -6,6 +6,7 @@ class Employee
     @phone_number = phone_number
     @salary = salary
     @review = ""
+    @satisfactory = ""
   end
 
   def name
@@ -30,6 +31,19 @@ class Employee
 
   def add_review(text)
     @review = text
+  end
+
+  def satisfactory
+    @satisfactory
+  end
+
+  def is_satisfactory(text)
+    @satisfactory = text
+    if @satisfactory == ("yes" || "satisfactory")
+      @satisfactory = :true_value
+    else
+      @satisfactory = :false_value
+    end
   end
 
 end

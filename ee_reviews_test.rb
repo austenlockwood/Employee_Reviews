@@ -74,4 +74,11 @@ class EmployeeTest <MiniTest::Test
     assert_equal "Gorlock is great.", gorlock.review
   end
 
+  def test_can_mark_ee_satisfactory_or_not_satisfactory
+    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+    janice.is_satisfactory("no")
+    janice.satisfactory
+    assert_equal :false_value, janice.satisfactory
+  end
+
 end
