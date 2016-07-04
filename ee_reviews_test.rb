@@ -81,4 +81,12 @@ class EmployeeTest <MiniTest::Test
     assert_equal :false_value, janice.satisfactory
   end
 
+  def test_can_give_raise_to_ee
+    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+    gorlock.give_raise("1200")
+    gorlock.raise
+    assert_equal 1200, gorlock.raise
+    assert_equal 16200, gorlock.salary
+  end
+
 end

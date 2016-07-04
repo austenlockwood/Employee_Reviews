@@ -7,6 +7,7 @@ class Employee
     @salary = salary
     @review = ""
     @satisfactory = ""
+    @raise = ""
   end
 
   def name
@@ -44,6 +45,15 @@ class Employee
     else
       @satisfactory = :false_value
     end
+  end
+
+  def raise
+    @raise
+  end
+
+  def give_raise(text)
+    @raise = text.to_i
+    @salary += @raise
   end
 
 end
