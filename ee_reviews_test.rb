@@ -90,3 +90,33 @@ class EmployeeTest <MiniTest::Test
   end
 
 end
+
+def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
+
+      janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+      martha = Employee.new("Martha Hansen", "martha@dunderaccounting.com", 2022022202, 32000)
+      gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+      alan = Employee.new("Alan Carlos", "alan@dunderhumanresources.com", 3019342567, 55000)
+
+      accounting = Department.new("Accounting")
+      human_resources = Department.new("Human Resources")
+
+      accounting.add_ee_to_dept(janice)
+      accounting.add_ee_to_dept(martha)
+      accounting.add_ee_to_dept(gorlock)
+      human_resources.add_ee_to_dept(alan)
+
+      def dept_raise(text)
+        total = 0
+        accounting.each do |employee|
+        if employee.satisfactory == :true_value total += 1
+        else skip
+        end
+      each_raise = text.to_i / total
+        accounting.each  do |employee|
+        if employee.satisfactory == :true_value
+          employee.salary += each_raise
+        else skip
+        end
+      end
+end
