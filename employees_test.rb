@@ -55,8 +55,9 @@ class EmployeeTest <MiniTest::Test
   def test_can_add_narrative_review_to_ee
     gorlock
     gorlock.add_review("Gorlock is great.")
-    gorlock.review
-    assert_equal "Gorlock is great.", gorlock.review
+    gorlock.add_review("Gorlock was tardy today.")
+    gorlock.reviews
+    assert_equal ["Gorlock is great.", "Gorlock was tardy today."], gorlock.reviews
   end
 
   def test_can_mark_ee_satisfactory_or_not_satisfactory
