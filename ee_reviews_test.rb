@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative './departments'
 require_relative './employees'
-require_relative './ee_reviews'
 
 class DepartmentTest < MiniTest::Test
 
@@ -36,12 +35,28 @@ end
 
 class EmployeeTest <MiniTest::Test
 
+  def janice
+    @janice ||= Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+  end
+
+  def martha
+    @martha ||= Employee.new("Martha Hansen", "martha@dunderaccounting.com", 2022022202, 32000)
+  end
+
+  def gorlock
+    @gorlock ||= Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+  end
+
+  def alan
+    @alan ||= Employee.new("Alan Carlos", "alan@dunderhumanresources.com", 3019342567, 55000)
+  end
+
   def test_employee_class_exists
     assert Employee
   end
 
   def test_can_create_new_ee
-    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+    janice
     assert_equal "Janice Smith", janice.name
     assert_equal "janice@dunderaccounting.com", janice.email
     assert_equal 4152025678, janice.phone_number
@@ -50,10 +65,10 @@ class EmployeeTest <MiniTest::Test
 
   def test_can_get_sum_of_dept_salaries
 
-    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
-    martha = Employee.new("Martha Hansen", "martha@dunderaccounting.com", 2022022202, 32000)
-    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
-    alan = Employee.new("Alan Carlos", "alan@dunderhumanresources.com", 3019342567, 55000)
+    janice
+    martha
+    gorlock
+    alan
 
     accounting = Department.new("Accounting")
     human_resources = Department.new("Human Resources")
@@ -68,21 +83,21 @@ class EmployeeTest <MiniTest::Test
   end
 
   def test_can_add_narrative_review_to_ee
-    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+    gorlock
     gorlock.add_review("Gorlock is great.")
     gorlock.review
     assert_equal "Gorlock is great.", gorlock.review
   end
 
   def test_can_mark_ee_satisfactory_or_not_satisfactory
-    janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
+    janice
     janice.is_satisfactory("no")
     janice.satisfactory
     assert_equal :false_value, janice.satisfactory
   end
 
   def test_can_give_raise_to_ee
-    gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
+    gorlock
     gorlock.give_raise("1200")
     gorlock.raise
     assert_equal 1200, gorlock.raise
@@ -93,10 +108,10 @@ end
 
 def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
 
-      janice = Employee.new("Janice Smith", "janice@dunderaccounting.com", 4152025678, 48000)
-      martha = Employee.new("Martha Hansen", "martha@dunderaccounting.com", 2022022202, 32000)
-      gorlock = Employee.new("Gorlock Colbert", "gorlock@dunderaccounting.com", 9991112222, 15000)
-      alan = Employee.new("Alan Carlos", "alan@dunderhumanresources.com", 3019342567, 55000)
+      janice
+      martha
+      gorlock
+      alan
 
       accounting = Department.new("Accounting")
       human_resources = Department.new("Human Resources")
@@ -106,17 +121,22 @@ def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
       accounting.add_ee_to_dept(gorlock)
       human_resources.add_ee_to_dept(alan)
 
-      def dept_raise(text)
-        total = 0
-        accounting.each do |employee|
-        if employee.satisfactory == :true_value total += 1
-        else skip
-        end
-      each_raise = text.to_i / total
-        accounting.each  do |employee|
-        if employee.satisfactory == :true_value
-          employee.salary += each_raise
-        else skip
-        end
-      end
+      janice.is_satisfactory("no")
+      martha.is_satisfactory("yes")
+      gorlock.is_satisfactory("yes")
+      alan.is_satisfactory("yes")
+
+      # def dept_raise(text)
+      #   total = 0
+      #   accounting.each do |employee|
+      #   if employee.satisfactory == :true_value total += 1
+      #   else skip
+      #   end
+      # each_raise = text.to_i / total
+      #   accounting.each  do |employee|
+      #   if employee.satisfactory == :true_value
+      #     employee.salary += each_raise
+      #   else skip
+      #   end
+      # end
 end
