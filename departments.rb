@@ -2,13 +2,11 @@ require_relative './employees'
 
 class Department
 
+attr_accessor :dept_name
+
   def initialize(dept_name)
     @dept_name = dept_name
     @employees = []
-  end
-
-  def dept_name
-    @dept_name
   end
 
   def employees
