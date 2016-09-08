@@ -65,6 +65,11 @@ class EmployeeTest <MiniTest::Test
     janice.is_satisfactory("no")
     janice.satisfactory
     assert_equal :false_value, janice.satisfactory
+
+    gorlock
+    gorlock.is_satisfactory("yes")
+    gorlock.satisfactory
+    assert_equal :true_value, gorlock.satisfactory
   end
 
   def test_can_give_raise_to_ee
