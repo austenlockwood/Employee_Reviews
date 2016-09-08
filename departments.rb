@@ -2,7 +2,7 @@ require_relative './employees'
 
 class Department
 
-attr_accessor :dept_name
+  attr_accessor :dept_name
 
   def initialize(dept_name)
     @dept_name = dept_name
@@ -20,7 +20,7 @@ attr_accessor :dept_name
   def total_salary
     total = 0
     @employees.each do |element|
-    total += element.salary
+      total += element.salary
     end
     total
   end
@@ -39,6 +39,6 @@ attr_accessor :dept_name
     good_ees.each do |ee|
       ee.salary += (@dept_raise/good_ees.length)
     end
-
   end
+
 end

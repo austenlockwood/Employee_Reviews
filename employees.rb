@@ -1,10 +1,10 @@
 class Employee
 
-attr_accessor :name
-attr_accessor :email
-attr_accessor :phone_number
-attr_accessor :salary
-attr_accessor :reviews
+  attr_accessor :name
+  attr_accessor :email
+  attr_accessor :phone_number
+  attr_accessor :salary
+  attr_accessor :reviews
 
   def initialize(name, email, phone_number, salary)
     @name = name

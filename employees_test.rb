@@ -81,26 +81,27 @@ class EmployeeTest <MiniTest::Test
   end
 
   def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
-        janice
-        martha
-        gorlock
-        alan
+    janice
+    martha
+    gorlock
+    alan
 
-        accounting = Department.new("Accounting")
-        human_resources = Department.new("Human Resources")
+    accounting = Department.new("Accounting")
+    human_resources = Department.new("Human Resources")
 
-        accounting.add_ee_to_dept(janice)
-        accounting.add_ee_to_dept(martha)
-        accounting.add_ee_to_dept(gorlock)
-        human_resources.add_ee_to_dept(alan)
+    accounting.add_ee_to_dept(janice)
+    accounting.add_ee_to_dept(martha)
+    accounting.add_ee_to_dept(gorlock)
+    human_resources.add_ee_to_dept(alan)
 
-        janice.is_satisfactory("no")
-        martha.is_satisfactory("yes")
-        gorlock.is_satisfactory("yes")
-        alan.is_satisfactory("yes")
+    janice.is_satisfactory("no")
+    martha.is_satisfactory("yes")
+    gorlock.is_satisfactory("yes")
+    alan.is_satisfactory("yes")
 
-        accounting
-        accounting.give_all_satisfactory_ees_raise("4000")
-        assert_equal 34000, martha.salary
+    accounting
+    accounting.give_all_satisfactory_ees_raise("4000")
+    assert_equal 34000, martha.salary
   end
+  
 end
