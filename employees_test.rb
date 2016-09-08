@@ -80,39 +80,27 @@ class EmployeeTest <MiniTest::Test
     assert_equal 16200, gorlock.salary
   end
 
-end
+  def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
+        janice
+        martha
+        gorlock
+        alan
 
-def test_can_give_all_satisfactory_ees_in_dept_same_dollar_raise
+        accounting = Department.new("Accounting")
+        human_resources = Department.new("Human Resources")
 
-      janice
-      martha
-      gorlock
-      alan
+        accounting.add_ee_to_dept(janice)
+        accounting.add_ee_to_dept(martha)
+        accounting.add_ee_to_dept(gorlock)
+        human_resources.add_ee_to_dept(alan)
 
-      accounting = Department.new("Accounting")
-      human_resources = Department.new("Human Resources")
+        janice.is_satisfactory("no")
+        martha.is_satisfactory("yes")
+        gorlock.is_satisfactory("yes")
+        alan.is_satisfactory("yes")
 
-      accounting.add_ee_to_dept(janice)
-      accounting.add_ee_to_dept(martha)
-      accounting.add_ee_to_dept(gorlock)
-      human_resources.add_ee_to_dept(alan)
-
-      janice.is_satisfactory("no")
-      martha.is_satisfactory("yes")
-      gorlock.is_satisfactory("yes")
-      alan.is_satisfactory("yes")
-
-      # def dept_raise(text)
-      #   total = 0
-      #   accounting.each do |employee|
-      #   if employee.satisfactory == :true_value total += 1
-      #   else skip
-      #   end
-      # each_raise = text.to_i / total
-      #   accounting.each  do |employee|
-      #   if employee.satisfactory == :true_value
-      #     employee.salary += each_raise
-      #   else skip
-      #   end
-      # end
+        accounting
+        accounting.give_all_satisfactory_ees_raise("4000")
+        assert_equal 34000, martha.salary
+  end
 end
